@@ -1,0 +1,114 @@
+import React from 'react';
+import Countdown from 'react-countdown';
+import { FaDiscord, FaGithub } from 'react-icons/fa'; 
+import './output.css'; 
+
+const XIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    shapeRendering="geometricPrecision"
+    textRendering="geometricPrecision"
+    imageRendering="optimizeQuality"
+    fillRule="evenodd"
+    clipRule="evenodd"
+    viewBox="0 0 512 462.799"
+    className="w-6 h-6" 
+  >
+    <path
+      fillRule="nonzero"
+      d="M403.229 0h78.506L310.219 196.04 512 462.799H354.002L230.261 301.007 88.669 462.799h-78.56l183.455-209.683L0 0h161.999l111.856 147.88L403.229 0zm-27.556 415.805h43.505L138.363 44.527h-46.68l283.99 371.278z"
+      fill="currentColor" 
+    />
+  </svg>
+);
+
+const CountdownRenderer = ({ days, hours, minutes, seconds, completed }) => {
+  if (completed) {
+    return <span className="text-2xl font-bold">We're Live!</span>;
+  } else {
+    return (
+      <div className="flex space-x-4">
+        <div className="text-center">
+          <span className="text-4xl font-bold">{days}</span>
+          <span className="text-sm text-gray-400">Days</span>
+        </div>
+        <div className="text-center">
+          <span className="text-4xl font-bold">{hours}</span>
+          <span className="text-sm text-gray-400">Hours</span>
+        </div>
+        <div className="text-center">
+          <span className="text-4xl font-bold">{minutes}</span>
+          <span className="text-sm text-gray-400">Minutes</span>
+        </div>
+        <div className="text-center">
+          <span className="text-4xl font-bold">{seconds}</span>
+          <span className="text-sm text-gray-400">Seconds</span>
+        </div>
+      </div>
+    );
+  }
+};
+
+function App() {
+  const targetDate = new Date('2026-01-20T00:00:00');
+
+  return (
+    <div className="min-h-screen text-white flex flex-col items-center justify-center p-6" style={{ backgroundColor: '#14171A' }}>
+      <img
+        src="/static/logo.png"
+        className="w-24 h-24 rounded-full mb-8 shadow-lg" 
+        alt="Wovver Logo"
+      />
+
+      <h1 className="text-4xl md:text-5xl font-bold mb-4 text-center">
+        Wovver is Coming Soon!
+      </h1>
+
+      <p className="text-lg text-gray-400 mb-8 text-center max-w-2xl">
+        We're building something amazing for you. Stay tuned and join our community to get the latest updates!
+      </p>
+
+      <div className="mb-8">
+        <Countdown date={targetDate} renderer={CountdownRenderer} />
+      </div>
+
+      <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
+        <a
+          href="https://discord.gg/Cy2q5G7sj5" 
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg flex items-center justify-center space-x-2 transition duration-300"
+        >
+          <FaDiscord className="w-6 h-6" />
+          <span>Join Our Discord</span>
+        </a>
+
+        <a
+          href="https://twitter.com/homaworks" 
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-black hover:bg-gray-900 text-white px-6 py-3 rounded-lg flex items-center justify-center space-x-2 transition duration-300"
+        >
+          <XIcon /> 
+          <span>Follow Us on X</span>
+        </a>
+
+        <a
+          href="https://github.com/Wovver" 
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-gray-700 hover:bg-gray-800 text-white px-6 py-3 rounded-lg flex items-center justify-center space-x-2 transition duration-300"
+        >
+          <FaGithub className="w-6 h-6" />
+          <span>Star on GitHub</span>
+        </a>
+      </div>
+
+      <div className="mt-12 text-center text-gray-400">
+        <p>© 2023 HomaWorks. All rights reserved.</p>
+      </div>
+    </div>
+  );
+}
+
+export default App;
