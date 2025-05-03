@@ -27,22 +27,22 @@ const CountdownRenderer = ({ days, hours, minutes, seconds, completed }) => {
     return <span className="text-2xl font-bold">We're Live!</span>;
   } else {
     return (
-      <div className="flex space-x-4">
-        <div className="text-center">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
           <span className="text-5xl font-extrabold">{days}</span>
-          <span className="text-sm text-gray-400">Days</span>
+          <div className="text-sm text-gray-400">Days</div>
         </div>
-        <div className="text-center">
+        <div>
           <span className="text-5xl font-extrabold">{hours}</span>
-          <span className="text-sm text-gray-400">Hours</span>
+          <div className="text-sm text-gray-400">Hours</div>
         </div>
-        <div className="text-center">
+        <div>
           <span className="text-5xl font-extrabold">{minutes}</span>
-          <span className="text-sm text-gray-400">Minutes</span>
+          <div className="text-sm text-gray-400">Minutes</div>
         </div>
-        <div className="text-center">
+        <div>
           <span className="text-5xl font-extrabold">{seconds}</span>
-          <span className="text-sm text-gray-400">Seconds</span>
+          <div className="text-sm text-gray-400">Seconds</div>
         </div>
       </div>
     );
@@ -76,7 +76,7 @@ function App() {
         <Countdown date={targetDate} renderer={CountdownRenderer} />
       </div>
 
-      <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 w-full justify-center">
+      <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 w-full justify-center mb-12">
         <a
           href="https://discord.gg/Cy2q5G7sj5" 
           target="_blank"
@@ -108,9 +108,9 @@ function App() {
         </a>
       </div>
 
-      <div className="mt-12 text-center text-gray-400">
+      <footer className="mt-12 text-center text-gray-400">
         <p>© 2023 HomaWorks. All rights reserved.</p>
-      </div>
+      </footer>
     </div>
   );
 }
