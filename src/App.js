@@ -64,8 +64,12 @@ function App() {
         Wovver is Coming Soon!
       </h1>
 
-      <p className="text-lg text-gray-400 mb-8 text-center max-w-2xl">
+      <p className="text-lg text-gray-400 mb-4 text-center max-w-2xl">
         We're building something amazing for you. Stay tuned and join our community to get the latest updates!
+      </p>
+
+      <p className="text-md text-red-400 italic mb-8 text-center max-w-xl">
+        Sorry for the delay — we've been pushed back due to school and development issues. Thanks for your patience!
       </p>
 
       <div className="mb-8">
